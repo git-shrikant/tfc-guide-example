@@ -39,3 +39,4 @@ resource "tfe_variable" "admin_variable_set_variables" {
     # other
     "TF_VAR_tfc_organisation_name" : "example-org-e4df2b",
   }
+}
