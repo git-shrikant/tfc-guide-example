@@ -26,6 +26,15 @@ resource "aws_instance" "ubuntu" {
     Name = var.instance_name
   }
 }
+locals{
+organization_name = "example-org-e4df2b"
+}
+
+resource "tfe_variable_set" "admin" {
+  name         = "Admin"
+  description  = "Common variables for admin workspaces"
+  organization = local.organization_name
+}
 resource "tfe_variable" "admin_variable_set_variables" {
   for_each = {
     # github provider
@@ -39,4 +48,8 @@ resource "tfe_variable" "admin_variable_set_variables" {
     # other
     "TF_VAR_tfc_organisation_name" : "example-org-e4df2b",
   }
+key             = each.key
+  value           = each.value
+  category        = "env"
+  variable_set_id = tfe_variable_set.admin.id
 }
