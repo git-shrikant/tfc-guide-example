@@ -23,5 +23,5 @@ resource "tfe_variable" "admin_variable_set_variables" {
 key             = each.key
   value           = each.value
   category        = "env"
-  variable_set_id = tfe_variable_set.admin.id
+  
 }
