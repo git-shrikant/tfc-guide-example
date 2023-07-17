@@ -1,7 +1,10 @@
 locals{
 organization_name = "example-org-e4df2b"
 }
-
+data "tfe_workspace" "test" {
+  name         = "test_spc"
+  organization = local.organisation_name
+}
 resource "tfe_variable" "admin_variable_set_variables" {
   for_each = {
     # github provider
@@ -19,6 +22,6 @@ resource "tfe_variable" "admin_variable_set_variables" {
   key             = each.key
   value           = each.value
   category        = "env"
-  variable_set_id = "ws-abZuN4Tr9xopwEp9"
+  variable_set_id = data.tfe_workspace.test.id 
 }
 
