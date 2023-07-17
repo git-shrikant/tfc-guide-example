@@ -3,7 +3,6 @@ organisation_name = "example-org-e4df2b"
 }
 data "tfe_organization" "test" {
   name  = local.organisation_name
-  email = "shrikant.khupat1@gmail.com"
 }
 
 resource "tfe_workspace" "test" {
