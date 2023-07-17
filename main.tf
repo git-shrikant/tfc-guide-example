@@ -7,7 +7,7 @@ resource "tfe_variable_set" "test_spc" {
   description  = "Common variables for admin workspaces"
   organization = local.organization_name
 }
-    = each.key
+  key  = each.key
   value           = each.value
   category        = "env"
  # variable_set_id = tfe_variable_set.test_spc.id
