@@ -1,5 +1,5 @@
 locals{
-organization_name = "example-org-e4df2b"
+organisation_name = "example-org-e4df2b"
 }
 data "tfe_workspace" "test" {
   name         = "test_spc"
@@ -16,7 +16,7 @@ resource "tfe_variable" "admin_variable_set_variables" {
     # tfe provider
    # "TFE_ORGANIZATION" : local.organisation_name
     # other
-    "TF_VAR_tfc_organisation_name" : local.organization_name,
+    "TF_VAR_tfc_organisation_name" : local.organisation_name,
   }
 
   key             = each.key
