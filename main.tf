@@ -1,8 +1,8 @@
 locals{
 organisation_name = "example-org-e4df2b"
 }
-data "tfe_workspace" "test" {
-  name         = "test_spc"
+data "tfe_variable_set" "test" {
+  name         = "admin"
   organization = local.organisation_name
 }
 resource "tfe_variable" "admin_variable_set_variables" {
@@ -22,6 +22,6 @@ resource "tfe_variable" "admin_variable_set_variables" {
   key             = each.key
   value           = each.value
   category        = "env"
-  variable_set_id = data.tfe_workspace.test.id 
+  variable_set_id = data.tfe_variable_set.test.id 
 }
 
