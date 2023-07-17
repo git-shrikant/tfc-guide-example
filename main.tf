@@ -7,7 +7,7 @@ data "tfe_organization" "test" {
 
 data "tfe_workspace" "test" {
   name         = "test_spc"
-  organization = data.tfe_organization.test.id
+  organization = data.tfe_organization.test.name
 }
 
 resource "tfe_variable" "test" {
