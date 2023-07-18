@@ -11,7 +11,7 @@ data "tfe_workspace" "test" {
 }
 
 resource "tfe_variable" "test" {
-  key          = "GITHUB_APP_ID"
+  key          = "ttttt"
   value        = "Shrikant"
   category     = "terraform"
   workspace_id = data.tfe_workspace.test.id
