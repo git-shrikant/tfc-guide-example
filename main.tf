@@ -11,9 +11,9 @@ data "tfe_workspace" "test" {
 }
 
 resource "tfe_variable" "test" {
-  key          = "ttttt"
+  key          = "key123"
   value        = "Shrikant"
-  category     = "terraform"
+  category     = "env"
   workspace_id = data.tfe_workspace.test.id
   description  = "a useful description"
 }
